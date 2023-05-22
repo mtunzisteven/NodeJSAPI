@@ -47,12 +47,18 @@ const userSchema = new Schema({
         headline: {
             type: String,
         },
-        skills: [
+        talents: [
                 {
                     type: Schema.Types.ObjectId,
-                    ref: 'Skill'
+                    ref: 'Talent'
                 }
-            ]
+            ],
+        reviews: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Review'
+            }
+        ]
     }
 
 );

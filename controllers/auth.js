@@ -7,8 +7,6 @@ const SECRET = process.env.SECRET;
 
 const User = require('../models/user'); // get the model and in there, the user schema
  
-console.log("Controlling!"); 
-
 exports.signup = async (req, res, next) => {
 
     const errors = validationResult(req); // fetch all errors caught by express-validator in router
@@ -21,7 +19,6 @@ exports.signup = async (req, res, next) => {
         })
 
     }
-
 
     const email = req.body.email;
     const name = req.body.name;
@@ -221,11 +218,9 @@ exports.getUser = async (req, res, next) => {
 
             if(!user){ // give error a status code if it is not found 
 
-                const error = new Error('User with this id was not found')
-
-                error.statusCode = 401;
-
-                throw error;
+                return res.status(401).json({
+                    message:'User was not found', 
+                })
 
             } // cannot throw error inside a promise, therefore we send catch block
 
@@ -259,10 +254,9 @@ exports.getUsers = async (req, res, next) => {
 
             if(!users){
 
-                const error = new Error('Users not found');
-                error.statusCode = 404;
-
-                throw error;
+                return res.status(404).json({
+                    message:'Users not found', 
+                });
 
             }
 

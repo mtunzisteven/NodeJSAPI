@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const User = require('../models/user'); // get the model and in there, the user schema
 
 const SECRET = process.env.SECRET;
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
 
     const authHeader = req.get('Authorization');
     
@@ -31,5 +32,7 @@ module.exports = (req, res, next) => {
     }
 
     req.userId = decodedToken.userId;
+    req.user = await User.findOne({_id:req.userId});
+
     next();
 };

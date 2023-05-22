@@ -9,8 +9,6 @@ const User = require('../models/user');
 
 const router = express.Router();
 
-console.log("Routing!");
-
 //PUT /auth/signup/
 router.put(
     '/signup',    

@@ -9,8 +9,6 @@ require('dotenv').config(); // import config values
 // define express app | express used to manage middlewares
 const app = express();
 
-console.log("App.js!");
-
 // file upload middleware 
 const fileStorage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -31,10 +29,10 @@ const fileFilter = (req, res, cb) =>{
 
     cb(null, false);
 
-  }
+  } 
 };
 
-const skillRoutes = require('./routes/skill');
+const talentRoutes = require('./routes/talents');
 const authRoutes = require('./routes/auth');
 
 // MongoDB URL
@@ -83,7 +81,7 @@ app.use((req, res, next)=>{
 
 })
 
-app.use('/skill', skillRoutes);
+app.use('/talent', talentRoutes);
 app.use('/auth', authRoutes);
 
 // mongoose will give us the connection. No need for mongoConnect
