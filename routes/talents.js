@@ -7,10 +7,7 @@ const isAuth = require('../middleware/is-auth');
 
 const router = express.Router();
 
-console.log("Talents Routing!");
-
-
-//GET /talents
+//GET /talent
 router.get(
     '/', 
     talentController.getTalents
@@ -44,6 +41,13 @@ router.put(
             .isLength({min:5})
     ], 
     talentController.updateTalent
+);
+
+//POST /talent/:talentId
+router.post(
+    '/:talentId', 
+    isAuth,
+    talentController.addTalent
 );
 
 //DELETE /talent/:talentId

@@ -219,6 +219,49 @@ exports.deleteTalent = async (req, res, next) => {
 
 }
 
+exports.addTalent = async (req, res, next) => {
+
+    const errors = validationResult(req); // fetch all errors caught by express-validator in router
+
+    if(!errors.isEmpty()){ // errors is not empty
+
+        return res.status(422).json({
+            message:'Validation Failed: Entered data is incorrect!', 
+        });
+        
+    }
+
+    const talentId = req.params.talentId;
+
+
+
+    try{
+
+        const talent = await  Talent.findOne({_id:talentId}); // get talent using talentId
+
+        req.user.talents.push(talent); // add the post to the user in the db
+        const result =  req.user.save();
+
+        // This response(res.json()) returns a json format response to the request
+        // this Talent would be stored in the db
+        res.status(201).json({
+            message:'Talent added successfully!',
+            Talent: talent,
+            result: result
+        });
+
+    }catch(err){
+
+        if(!err.statusCode){ // give error a status code if it is not found 
+
+            err.statusCode = 500;
+
+        } // cannot throw error inside a promise, therefore we send it to next middleware
+
+        next(err); // go to next middleware with err as an argument passed to it.
+    };
+}
+
 // function for deleting an image in the server
 const clearImage = filePath =>{
 
