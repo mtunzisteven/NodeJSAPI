@@ -54,6 +54,13 @@ router.post(
 router.delete(
     '/:talentId', 
     isAuth,
+    talentController.removeTalent
+);
+
+//DELETE /talent/:talentId
+router.delete(
+    '/:talentId', 
+    isAuth,
     talentController.deleteTalent
 );
 
