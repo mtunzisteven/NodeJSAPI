@@ -262,7 +262,7 @@ exports.addTalent = async (req, res, next) => {
     };
 }
 
-exports.removeTalent = async (req, res, next) => {
+exports.removeUserTalent = async (req, res, next) => {
 
     const errors = validationResult(req); // fetch all errors caught by express-validator in router
 

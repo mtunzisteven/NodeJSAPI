@@ -29,7 +29,7 @@ router.post(
 router.get(
     '/:talentId',
     talentController.getTalent
-    );
+);
 
 //PUT /talent/:talentId
 router.put(
@@ -50,11 +50,11 @@ router.post(
     talentController.addTalent
 );
 
-//DELETE /talent/:talentId
-router.delete(
+//PATCH /talent/:talentId
+router.patch(
     '/:talentId', 
     isAuth,
-    talentController.removeTalent
+    talentController.removeUserTalent
 );
 
 //DELETE /talent/:talentId

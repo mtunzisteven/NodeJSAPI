@@ -173,9 +173,6 @@ exports.updateUser = async (req, res, next) => {
         //     throw error; // will send us to catch block
         // }
 
-        console.log(req.body);
-        console.log(user);
-
         const updatedUser = await User.findOneAndUpdate(
             { _id: userId }, 
             {
