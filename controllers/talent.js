@@ -41,7 +41,7 @@ exports.getTalents = async (req, res, next) => { // logged in admin can access T
 
 exports.getTalent = async (req, res, next) => {
 
-    const TalentId = req.params.TalentId;
+    const TalentId = req.params.talentId;
 
     try{
 
