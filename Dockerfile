@@ -16,4 +16,5 @@ RUN npm install
 EXPOSE 8080
 
 # we tell docker how to start our node app in the container(start our container basically)
+# build Docker container image with: "docker build ."
 CMD ["npx", "nodemon"]
