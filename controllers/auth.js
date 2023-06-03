@@ -226,7 +226,7 @@ exports.getUser = async (req, res, next) => {
             // This response(res.json()) returns a json format response to the request
             // This response(res.status(201).json()) includes status code to assist request understand outcome since they must decide what view to dispay
             res.status(200).json({
-                message:"User retrieved!",
+                message:"User retrieved successfully!",
                 user: loadedUser
             });
 
