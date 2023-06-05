@@ -44,7 +44,6 @@ POST:*/login*
 {
 
     email: "string",
-    
     password: "string"
     
 }
@@ -53,7 +52,6 @@ Expected result - status:200
 ```
     {
         token:token,
-        
         userId:userId
     }
 ```
@@ -70,7 +68,6 @@ Expected result: status:200
 ```
     {
         message:"Users retrieved!",
-        
         users:users
     }
 ```
@@ -86,7 +83,6 @@ Expected result - status:200
 ```
     {
         message:"User retrieved successfully!",
-        
         user: user
     }
 ```
@@ -98,21 +94,13 @@ PUT:*/users/:userId*
 { 
 
     email: "string",
-    
     password:"string",
-    
     name:"string",    
-    
     surname: "string",
-    
     memberId:"string",
-    
     ward:  "string",
-    
     stake:  "string",
-    
     age:  "string",
-    
     whatsApp: "string"
     
 }
