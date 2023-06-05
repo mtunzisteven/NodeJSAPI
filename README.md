@@ -294,7 +294,7 @@ PUT:*/:talentId*
 Expected result - status:201
 ```
     {
-        message:'Talent deleted successfully!',
+        message:'Talent removed successfully!',
         
         result: result
     }
