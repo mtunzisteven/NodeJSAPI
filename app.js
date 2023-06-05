@@ -101,6 +101,6 @@ mongoose
       console.log('client connected');
     });
   })
-  .catch(err => { 
+  .catch(err => {  
     console.log(err); 
   })

@@ -291,7 +291,7 @@ exports.removeUserTalent = async (req, res, next) => {
         // This response(res.json()) returns a json format response to the request
         // this Talent would be stored in the db
         res.status(201).json({
-            message:'Talent deleted successfully!',
+            message:'Talent removed successfully!',
             result: result
         });
 
