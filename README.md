@@ -2,18 +2,19 @@
 
 This is a NodeJS API developed to provide a backend logic for interacting with a database. It is mean't to provide the logic for an app that serves as a repository of users and their respective talents or skills.
 
-## Usage
+# Usage
 
-**All user operations: */auth***
-
-
+## All user operations: */auth*
 
 
-# Sign-up for a user account
+
+
+### Sign-up for a user account
 
 PUT:*/signup*
 
-```{
+```
+{
     email: "string",
     password:"string",   
     name:"string",    
@@ -34,10 +35,10 @@ Expected result - status:201
     }
 ```
 
-Login to existing account
+### Login to existing account
 
 POST:*/login*
-
+```
 {
 
     email: "string",
@@ -45,51 +46,53 @@ POST:*/login*
     password: "string"
     
 }
-
+```
 Expected result - status:200
-
+```
     {
         token:token,
         
         userId:userId
     }
+```
 
-
-Fetch all users
+### Fetch all users
 
 GET:*/users*
-
+```
 { 
 
 }
-
+```
 Expected result: status:200
-
+```
     {
         message:"Users retrieved!",
         
         users:users
     }
-
-Fetch user by id
+```
+### Fetch user by id
 
 GET:*/users/:userId*
-
+```
 { 
 
 }
-
+```
 Expected result - status:200
+```
     {
         message:"User retrieved successfully!",
         
         user: user
     }
+```
 
-Udate user details: *auth-token required*
+### Udate user details: *auth-token required*
 
 PUT:*/users/:userId*
-
+```
 { 
 
     email: "string",
@@ -111,14 +114,16 @@ PUT:*/users/:userId*
     whatsApp: "string"
     
 }
-
+```
 Expected result - status:201
+```
     {
         message:'User updated successfully!'
     }
+```
 
-**User Model:**
-
+### User Model:
+```
 {
 
     email: {
@@ -181,21 +186,22 @@ Expected result - status:201
     }
         
 }
+```
 
-**All talent operations: */talent***
+## All talent operations: */talent***
 
-Add a new talent. *Requirements {admin = true & auth-token}*
+### Add a new talent. *Requirements {admin = true & auth-token}*
 
 POST:*/*
-
+```
 {
 
     title: "string"
     
 }
-
+```
 Expected result - status:201
-
+```
     {
     
         message:'Talent created successfully!',
@@ -205,61 +211,68 @@ Expected result - status:201
         result: result 
         
     }
+```
 
-
-Fetch all talents
+### Fetch all talents
 
 GET:*/*
-
+```
 { 
 
 }
-
+```
 Expected result - status:200
+```
     {
         message: 'Fetched talents successfully', 
         
         Talents:talents
     }
-    
-Fetch talent by id
+```
+
+### Fetch talent by id
 
 GET:*/:talentId*
-
+```
 { 
 
 }
-
+```
 Expected result - status:200
+```
     {
         Talent: talent
     }
+```
 
-
-Update a talent by id. *Requirements {admin = true & auth-token}*
+### Update a talent by id. *Requirements {admin = true & auth-token}*
 
 PUT:*/:talentId*
-
+```
 {
     title: "string"
 }
-
+```
 Expected result - status:201
+```
     {
         massage:"Talent updated successfully", 
         
         talent:result
     }
+```
 
-Add talent to user by talent id. *Auth-token*
+### Add talent to user by talent id. *Auth-token*
 
 PUT:*/:talentId*
-
+```
 {
 
 }
+```
 
 Expected result - status:201
+```
     {
         message:'Talent added successfully!',
         
@@ -267,41 +280,49 @@ Expected result - status:201
         
         result: result
     }
+```
 
-Remove talent from user by talent id. *Auth-token*
+### Remove talent from user by talent id. *Auth-token*
 
 PUT:*/:talentId*
+```
 {
 
 }
+```
 
 Expected result - status:201
+```
     {
         message:'Talent deleted successfully!',
         
         result: result
     }
+```
 
-Delete talent from database by talent id. *Requirements {admin = true & auth-token}*
+### Delete talent from database by talent id. *Requirements {admin = true & auth-token}*
 
 DELETE:*/:talentId*
-
+```
 {
 
 }
+```
 
 Expected result - status:201
+```
     {
         message:'Talent deleted successfully!',
         
         result: result
     }
+```
 
-
-**Talent Model:**
-
+## Talent Model:
+```
 {
 
     title: string
 
 }
+```
