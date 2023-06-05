@@ -2,6 +2,8 @@
 
 This is a NodeJS API developed to provide a backend logic for interacting with a database. It provides the backend logic for an app that serves as a repository of users and their respective talents or skills.
 
+### [Base Url](http://3.84.116.201/)
+
 # Usage
 
 ## All user operations: */auth*
