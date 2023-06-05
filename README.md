@@ -130,7 +130,6 @@ Expected result - status:201
 
     email: string,
 
-
     password: string,
     
     name: string,     
