@@ -129,21 +129,13 @@ Expected result - status:201
 {
 
     email: string,
-
-    password: string,
-    
+    password: string,   
     name: string,     
-    
     surname: string,
-    
     memberId: string,
-    
     ward: string,
-    
     stake: string,
-    
     age: string,
-    
     whatsApp: string
         
 }
@@ -166,9 +158,7 @@ Expected result - status:201
     {
     
         message:'Talent created successfully!',
-        
         Talent: Talent,
-        
         result: result 
         
     }
@@ -186,7 +176,6 @@ Expected result - status:200
 ```
     {
         message: 'Fetched talents successfully', 
-        
         Talents:talents
     }
 ```
@@ -218,7 +207,6 @@ Expected result - status:201
 ```
     {
         massage:"Talent updated successfully", 
-        
         talent:result
     }
 ```
@@ -236,9 +224,7 @@ Expected result - status:201
 ```
     {
         message:'Talent added successfully!',
-        
         Talent: talent,
-        
         result: result
     }
 ```
@@ -256,7 +242,6 @@ Expected result - status:201
 ```
     {
         message:'Talent removed successfully!',
-        
         result: result
     }
 ```
@@ -274,7 +259,6 @@ Expected result - status:201
 ```
     {
         message:'Talent deleted successfully!',
-        
         result: result
     }
 ```
