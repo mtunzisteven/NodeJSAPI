@@ -1,4 +1,4 @@
-**User: *All user operations /auth***
+**All user operations: */auth***
 
 Sign-up for a user account
 
@@ -84,7 +84,7 @@ Expected result - status:200
         user: user
     }
 
-Udate user details: *auth token required*
+Udate user details: *auth-token required*
 
 PUT:*/users/:userId*
 
@@ -180,9 +180,9 @@ Expected result - status:201
         
 }
 
-Talent: *All talent operations /talent*
+**All talent operations: */talent***
 
-Add a new talent. *Requirement:admin:true & *auth-token*
+Add a new talent. *Requirements {admin = true & auth-token}*
 
 POST:*/*
 
@@ -234,7 +234,7 @@ Expected result - status:200
     }
 
 
-Update a talent by id. *Requirement:admin:true & auth-token*
+Update a talent by id. *Requirements {admin = true & auth-token}*
 
 PUT:*/:talentId*
 
@@ -280,7 +280,7 @@ Expected result - status:201
         result: result
     }
 
-Delete talent from database by talent id. *Admin=true & Auth-token*
+Delete talent from database by talent id. *Requirements {admin = true & auth-token}*
 
 DELETE:*/:talentId*
 
