@@ -1,6 +1,8 @@
 # Talent Share API
 
-## This is a NodeJS API developed to provide a backend logic for interacting with a database. It is mean't to provide the logic for an app that serves as a repository of users and their respective talents or skills.
+This is a NodeJS API developed to provide a backend logic for interacting with a database. It is mean't to provide the logic for an app that serves as a repository of users and their respective talents or skills.
+
+## Usage
 
 **All user operations: */auth***
 
