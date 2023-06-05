@@ -128,64 +128,24 @@ Expected result - status:201
 ```
 {
 
-    email: {
+    email: string,
+
+
+    password: string,
     
-        type: String,
-        
-        required: true,
-        
-    },
+    name: string,     
     
-    password: {
+    surname: string,
     
-        type: String,
-        
-        required: true,
-        
-    },
-    name: {
-        type: String,
-        required: true,
-    },        
-    surname: {
+    memberId: string,
     
-        type: String,
-        
-        required: true,
-        
-    },
-    memberId: {
+    ward: string,
     
-        type: String,
-        
-        required: true,
-        
-    },
+    stake: string,
     
-    ward: {
-        type: String,
-        required: true,
-    },
+    age: string,
     
-    stake: {
-    
-        type: String,
-        
-        required: true,
-        
-    },
-    
-    age: {
-    
-        type: String,
-        
-        required: true,
-        
-    },
-    whatsApp: {
-        type: String,
-        required: true,
-    }
+    whatsApp: string
         
 }
 ```
