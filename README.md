@@ -6,12 +6,14 @@ This is a NodeJS API developed to provide a backend logic for interacting with a
 
 **All user operations: */auth***
 
-Sign-up for a user account
+
+
+
+# Sign-up for a user account
 
 PUT:*/signup*
 
-# code block
-{
+```{
     email: "string",
     password:"string",   
     name:"string",    
@@ -21,14 +23,14 @@ PUT:*/signup*
     stake:  "string",
     age:  "string",
     whatsApp: "string"
-}
+}```
 
 Expected result - status:201
-# code block
+```
     {
         message:'User Created successfully!', 
         userId:userId
-    }
+    }```
     
 
 Login to existing account
