@@ -1,31 +1,28 @@
+#Talent Share API
+
+## This is a NodeJS API developed to provide a backend logic for interacting with a database. It is mean't to provide the logic for an app that serves as a repository of users and their respective talents or skills.
+
 **All user operations: */auth***
 
 Sign-up for a user account
 
 PUT:*/signup*
 
+# code block
 {
-    
     email: "string",
-    
-    password:"string",
-    
+    password:"string",   
     name:"string",    
-    
-    surname: "string",
-    
+    surname: "string",    
     memberId:"string",
-    
-    ward:  "string",
-    
+    ward:  "string",    
     stake:  "string",
-    
     age:  "string",
-    
     whatsApp: "string"
 }
 
 Expected result - status:201
+# code block
     {
         message:'User Created successfully!', 
         userId:userId
