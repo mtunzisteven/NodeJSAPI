@@ -16,6 +16,7 @@ RUN npm install
 # Second dot, dot fwd slash, or /app tells docker which folder to copy all the files above into
 COPY . /app
 
+
 # as a docker container is isolated, we expose port to allow us to access it when container app is running
 # an optional step just for documentation. Use: "docker run -p 8080:8080 id" to make port available for app use
 EXPOSE $PORT
