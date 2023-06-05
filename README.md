@@ -23,14 +23,14 @@ PUT:*/signup*
     stake:  "string",
     age:  "string",
     whatsApp: "string"
-}```
+}
 
 Expected result - status:201
 ```
     {
         message:'User Created successfully!', 
         userId:userId
-    }```
+    }
     
 
 Login to existing account
