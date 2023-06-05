@@ -188,7 +188,7 @@ Expected result - status:201
 }
 ```
 
-## All talent operations: */talent***
+## All talent operations: */talent*
 
 ### Add a new talent. *Requirements {admin = true & auth-token}*
 
