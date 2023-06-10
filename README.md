@@ -89,7 +89,7 @@ Expected result - status:200
 
 ### Udate user details: *auth-token required*
 
-PUT:*/users/:userId*
+PUT:*/user/:userId*
 ```
 { 
 
