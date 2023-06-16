@@ -65,13 +65,4 @@ router.put(
 //POST /auth/login/
 router.post('/login', authController.login); // not validated becausse checks are done in the controller
 
-//GET /auth/users
-router.get('/users', authController.getUsers);
-
-//GET /auth/user/:userId
-router.get('/user/:userId', authController.getUser);
-
-//PUT /user/:userId
-router.put('/user/:userId', isAuth, authController.updateUser);
-
 module.exports = router;

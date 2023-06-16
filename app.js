@@ -34,6 +34,7 @@ const fileFilter = (req, res, cb) =>{
 
 const talentRoutes = require('./routes/talents');
 const authRoutes = require('./routes/auth');
+const usersRoutes = require('./routes/users');
 
 // MongoDB URL
 const MONGODB_URL = process.env.MONGODB_URL; 
@@ -83,6 +84,7 @@ app.use((req, res, next)=>{
 
 app.use('/talent', talentRoutes);
 app.use('/auth', authRoutes);
+app.use('/users', usersRoutes);
 
 // mongoose will give us the connection. No need for mongoConnect
 mongoose
