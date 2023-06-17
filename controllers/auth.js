@@ -6,6 +6,7 @@ require('dotenv').config();
 const SECRET = process.env.SECRET;
 
 const User = require('../models/user'); // get the model and in there, the user schema
+const Talent = require('../models/talent'); // get the model and in there, the user schema
  
 exports.signup = async (req, res, next) => {
 
@@ -29,6 +30,7 @@ exports.signup = async (req, res, next) => {
     const stake = req.body.stake;
     const age = req.body.age;
     const memberId = req.body.memberId;
+    const talentId = req.body.talentId;
 
     try{
 
@@ -44,6 +46,10 @@ exports.signup = async (req, res, next) => {
             age:age,
             memberId:memberId
         });
+
+        const talent = await  Talent.findOne({_id:talentId}); // get talent using talentId
+
+        user.talents.push(talent);
         
         const result = await user.save(); 
             res.status(201).json({
