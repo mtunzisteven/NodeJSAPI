@@ -98,20 +98,12 @@ exports.approveUser = async (req, res, next) => {
 
     const userId = req.params.userId;
 
-    const email = req.body.email;
-    const name = req.body.name;
-    const surname = req.body.surname;
-    const whatsApp = req.body.whatsApp;    
-    const ward = req.body.ward;
-    const stake = req.body.stake;
-    const age = req.body.age;
-    const memberId = req.body.memberId;
+    const approved = req.body.approved;
+
 
     try{
 
         const user = await User.findOne({_id: userId})
-
-        console.log(user);
 
         // Check if Skill was found
         if(!user){
@@ -123,8 +115,8 @@ exports.approveUser = async (req, res, next) => {
         }
 
         // check if the user trying to update the user is either the logged in user or an admin
-        if(user._id.toString() !== req.userId || user.admin == false){
-            const error = new Error("Error! You can't update another user unless you're an admin");
+        if(req.user.admin == true){
+            const error = new Error("Error! Only administrators can approve users");
 
             error.statusCode = 403;
 
@@ -133,20 +125,11 @@ exports.approveUser = async (req, res, next) => {
 
         const updatedUser = await User.findOneAndUpdate(
             { _id: userId }, 
-            {
-                email:email, 
-                name:name,
-                whatsApp:whatsApp, 
-                ward:ward,
-                surname:surname,
-                stake:stake, 
-                age:age,
-                memberId:memberId
-            }
+            {approved:approved}
         );
         
         res.status(201).json({
-                message:'User updated successfully!',
+                message:'User approved!',
                 user: updatedUser
             })
 
@@ -177,20 +160,11 @@ exports.changeUserAdmin = async (req, res, next) => {
 
     const userId = req.params.userId;
 
-    const email = req.body.email;
-    const name = req.body.name;
-    const surname = req.body.surname;
-    const whatsApp = req.body.whatsApp;    
-    const ward = req.body.ward;
-    const stake = req.body.stake;
-    const age = req.body.age;
-    const memberId = req.body.memberId;
+    const admin = req.body.admin;
 
     try{
 
         const user = await User.findOne({_id: userId})
-
-        console.log(user);
 
         // Check if Skill was found
         if(!user){
@@ -202,8 +176,8 @@ exports.changeUserAdmin = async (req, res, next) => {
         }
 
         // check if the user trying to update the user is either the logged in user or an admin
-        if(user._id.toString() !== req.userId || user.admin == false){
-            const error = new Error("Error! You can't update another user unless you're an admin");
+        if(req.user.admin == false){
+            const error = new Error("Error! Only administrators can update user's admin levels");
 
             error.statusCode = 403;
 
@@ -213,14 +187,7 @@ exports.changeUserAdmin = async (req, res, next) => {
         const updatedUser = await User.findOneAndUpdate(
             { _id: userId }, 
             {
-                email:email, 
-                name:name,
-                whatsApp:whatsApp, 
-                ward:ward,
-                surname:surname,
-                stake:stake, 
-                age:age,
-                memberId:memberId
+                admin:admin
             }
         );
         

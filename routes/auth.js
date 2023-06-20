@@ -62,7 +62,7 @@ router.put(
     authController.signup
 );
   
-//POST /auth/login/
+//POST /auth/login/ 
 router.post('/login', authController.login); // not validated becausse checks are done in the controller
 
 module.exports = router;

@@ -12,6 +12,12 @@ router.get('/', usersController.getUsers);
 router.get('/:userId', usersController.getUser);
 
 //PUT /users/:userId
-router.put('/:userId', isAuth, usersController.updateUser);
+router.put('/:userId', isAuth, usersController.updateUser);  
+
+//PATCH /users/:userId
+router.patch('/:userId', isAuth, usersController.approveUser);
+
+//PATCH /users/admin/:userId
+router.patch('/admin/:userId', isAuth, usersController.changeUserAdmin);
 
 module.exports = router;
