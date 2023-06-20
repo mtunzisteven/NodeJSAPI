@@ -30,11 +30,14 @@ exports.signup = async (req, res, next) => {
     const stake = req.body.stake;
     const age = req.body.age;
     const memberId = req.body.memberId;
-    const talentId = req.body.talentId;
+    const talentId = req.body.talent;
+
+    console.log(talentId);
 
     try{
 
         const hashedPassword = await bcrypt.hash(password, 12);
+        
         const user = await new User({
             email:email, 
             password:hashedPassword,
