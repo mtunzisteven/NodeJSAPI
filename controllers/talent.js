@@ -171,7 +171,7 @@ exports.updateTalent = async (req, res, next) => {
 
         next(err); // go to next middleware with err as an argument passed to it.
     };
-};
+};  
 
 exports.deleteTalent = async (req, res, next) => {
 

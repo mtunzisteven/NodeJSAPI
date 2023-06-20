@@ -277,3 +277,49 @@ exports.getUsers = async (req, res, next) => {
         next(err); // go to next middleware with err as an argument passed to it.
     }
 };
+
+exports.deleteUser = async (req, res, next) => {
+
+    if(req.user.admin != true){ // Only Admin can do this operation
+
+        return res.status(422).json({
+            message:'Error! You need to be an admin to add a talent.', 
+        });
+    }
+
+    const userId = req.params.userId;
+
+    try{
+
+        const user = await User.findById(userId)
+
+        if(!user){
+
+            const error = new Error('Could not find user!');
+
+            error.statusCode = 404;
+
+            throw error; // will send us to catch block
+        }
+
+        // delete Talent
+        const result = await User.findByIdAndRemove(userId);
+
+
+        res.status(200).json({
+            massage:"User deleted successfully",
+            result: result
+        });
+        
+    }catch(err){
+
+        if(!err.statusCode){ // give error a status code if it is not found 
+
+            err.statusCode = 500;
+
+        } // cannot throw error inside a promise, therefore we send it to next middleware
+
+        next(err); // go to next middleware with err as an argument passed to it.
+    };
+
+}

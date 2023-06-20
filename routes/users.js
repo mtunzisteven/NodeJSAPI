@@ -20,4 +20,7 @@ router.patch('/:userId', isAuth, usersController.approveUser);
 //PATCH /users/admin/:userId
 router.patch('/admin/:userId', isAuth, usersController.changeUserAdmin);
 
+//DELETE /users/:userId
+router.delete('/:userId', isAuth, usersController.deleteUser);
+
 module.exports = router;
