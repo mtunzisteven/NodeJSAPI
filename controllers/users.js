@@ -12,7 +12,7 @@ exports.updateUser = async (req, res, next) => {
 
 
         return res.status(422).json({
-            message:'Validation Failed!', 
+            message: errors.errors[0].message 
         })
 
     }
@@ -32,9 +32,7 @@ exports.updateUser = async (req, res, next) => {
 
         const user = await User.findOne({_id: userId})
 
-        console.log(user);
-
-        // Check if Skill was found
+        // Check if user was found
         if(!user){
             const error = new Error('Could not find User!');
 
@@ -91,7 +89,7 @@ exports.approveUser = async (req, res, next) => {
 
 
         return res.status(422).json({
-            message:'Validation Failed!', 
+            message:errors.errors[0].massage 
         })
 
     }
@@ -153,7 +151,7 @@ exports.changeUserAdmin = async (req, res, next) => {
 
 
         return res.status(422).json({
-            message:'Validation Failed!', 
+            message:errors.errors[0].message, 
         })
 
     }
@@ -192,7 +190,7 @@ exports.changeUserAdmin = async (req, res, next) => {
         );
         
         res.status(201).json({
-                message:'User updated successfully!',
+                message:'User admin update!',
                 user: updatedUser
             })
 
@@ -261,7 +259,7 @@ exports.getUsers = async (req, res, next) => {
 
             // This response(res.json()) returns a json format response to the request
             // This response(res.status(201).json()) includes status code to assist request understand outcome since they must decide what view to dispay
-            res.status(200).json({
+            res.status(201).json({
                 message:"Users retrieved!",
                 users:users
             });

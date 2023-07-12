@@ -7,8 +7,6 @@ exports.getTalents = async (req, res, next) => { // logged in admin can access T
     
     try{
 
-        console.log("Comes to getTalents!")
-
         const talents = await Talent.find() // get Talents by the specific user, not ones created by another user(for total Talents count)
 
         // end the sherade if there is no Talents found
@@ -90,7 +88,7 @@ exports.createTalent = async (req, res, next) => {
     if(!errors.isEmpty()){ // errors is not empty
 
         return res.status(422).json({
-            message:'Validation Failed: Entered data is incorrect!', 
+            message:errors.errors[0].message
         });
         
     }
@@ -226,14 +224,12 @@ exports.addTalent = async (req, res, next) => {
     if(!errors.isEmpty()){ // errors is not empty
 
         return res.status(422).json({
-            message:'Validation Failed: Entered data is incorrect!', 
+            message:errors.errors[0].message
         });
         
     }
 
     const talentId = req.params.talentId;
-
-
 
     try{
 
@@ -269,7 +265,7 @@ exports.removeUserTalent = async (req, res, next) => {
     if(!errors.isEmpty()){ // errors is not empty
 
         return res.status(422).json({
-            message:'Validation Failed: Entered data is incorrect!', 
+            message: errors.errors[0].message 
         });
         
     }
@@ -305,7 +301,7 @@ exports.removeUserTalent = async (req, res, next) => {
 
         next(err); // go to next middleware with err as an argument passed to it.
     };
-}
+} 
 
 // function for deleting an image in the server
 const clearImage = filePath =>{

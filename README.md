@@ -2,14 +2,11 @@
 
 This is a NodeJS API developed to provide a backend logic for interacting with a database. It provides the backend logic for an app that serves as a repository of users and their respective talents or skills.
 
-### [Base Url](http://44.203.177.222/)
+### [Base Url](http://3.93.186.121)
 
 # Usage
 
-## All user operations: */auth*
-
-
-
+## All Auth operations: */auth*
 
 ### Sign-up for a user account
 
@@ -52,13 +49,15 @@ Expected result - status:200
 ```
     {
         token:token,
-        userId:userId
+        user:user
     }
 ```
 
+## All Users operations: */users*
+
 ### Fetch all users
 
-GET:*/users*
+GET:*/*
 ```
 { 
 
@@ -71,9 +70,10 @@ Expected result: status:200
         users:users
     }
 ```
+
 ### Fetch user by id
 
-GET:*/users/:userId*
+GET:*/:userId*
 ```
 { 
 
@@ -89,12 +89,11 @@ Expected result - status:200
 
 ### Udate user details: *auth-token required*
 
-PUT:*/user/:userId*
+PUT:*/:userId*
 ```
 { 
 
     email: "string",
-    password:"string",
     name:"string",    
     surname: "string",
     memberId:"string",
@@ -108,7 +107,61 @@ PUT:*/user/:userId*
 Expected result - status:201
 ```
     {
-        message:'User updated successfully!'
+        message:'User updated successfully!',
+        user: updatedUser
+    }
+```
+
+### Approve user: *auth-token required*
+
+PATCH:*/:userId*
+```
+{ 
+
+    approved: boolean
+    
+}
+```
+Expected result - status:201
+```
+    {
+        message:'User approveded!',
+        user: updatedUser
+    }
+```
+
+### Change user admin: *auth-token required*
+
+PATCH:*/admin/:userId*
+```
+{ 
+
+    admin: boolean
+    
+}
+```
+Expected result - status:201
+```
+    {
+        message:'User admin update!',
+        user: updatedUser
+    }
+```
+
+
+### Delete user: *auth-token required*
+
+DELETE:*/:userId*
+```
+{ 
+    
+}
+```
+Expected result - status:200
+```
+    {
+        message:'User deleted successfully',
+        result: result
     }
 ```
 
@@ -123,7 +176,7 @@ Expected result - status:201
     memberId: string,
     ward: string,
     stake: string,
-    age: string,
+    age: string,    
     whatsApp: string
         
 }
@@ -131,7 +184,7 @@ Expected result - status:201
 
 ## All talent operations: */talent*
 
-### Add a new talent. *Requirements {admin = true & auth-token}*
+### Create talent. *Requirements {admin = true & auth-token}*
 
 POST:*/*
 ```
@@ -168,7 +221,7 @@ Expected result - status:200
     }
 ```
 
-### Fetch talent by id
+### Fetch single talent
 
 GET:*/:talentId*
 ```
@@ -183,7 +236,7 @@ Expected result - status:200
     }
 ```
 
-### Update a talent by id. *Requirements {admin = true & auth-token}*
+### Update a talent. *Requirements {admin = true & auth-token}*
 
 PUT:*/:talentId*
 ```
@@ -199,7 +252,7 @@ Expected result - status:201
     }
 ```
 
-### Add talent to user by talent id. *Auth-token*
+### Add talent to user. *Auth-token*
 
 PUT:*/:talentId*
 ```
@@ -217,9 +270,9 @@ Expected result - status:201
     }
 ```
 
-### Remove talent from user by talent id. *Auth-token*
+### Remove talent from user. *Auth-token*
 
-PUT:*/:talentId*
+PATCH:*/:talentId*
 ```
 {
 
@@ -234,7 +287,7 @@ Expected result - status:201
     }
 ```
 
-### Delete talent from database by talent id. *Requirements {admin = true & auth-token}*
+### Delete talent. *Requirements {admin = true & auth-token}*
 
 DELETE:*/:talentId*
 ```
@@ -251,7 +304,7 @@ Expected result - status:201
     }
 ```
 
-## Talent Model:
+### Talent Model:
 ```
 {
 

@@ -16,7 +16,7 @@ exports.signup = async (req, res, next) => {
 
 
         return res.status(422).json({
-            message:'Validation Failed!', 
+            message: errors.errors[0].message 
         })
 
     }
